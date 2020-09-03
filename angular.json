@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularToDo"
+    }
+  },
+  "defaultProject": "angularToDo",
+  "cli": {
+    "analytics": false
+  }
 }
