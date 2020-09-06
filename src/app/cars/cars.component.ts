@@ -32,8 +32,10 @@ export class CarsComponent implements OnInit {
   }
   delOpt(option) {
     for (let i = 0; i < this.options.length; i++) {
-      if (this.options[i] == option) this.options.splice(i, 1);
-      break
+      if (this.options[i] == option) {
+        this.options.splice(i, 1);
+        break;
+      }
     }
   }
 

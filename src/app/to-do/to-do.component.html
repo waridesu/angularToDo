@@ -1,0 +1,11 @@
+<ul>
+  <li *ngFor="let to of todos; let i = index">
+    <span class="checker" [class.done]="to.completed">
+      <input type="checkbox" [checked]="to.completed" (change)="onChange(to.id)"/>
+      <strong>{{ i + 1 }}</strong>
+      {{ to.title }}
+    </span>
+    <small>{{to.date | date: 'short'}}</small>
+    <button (click)="removeTodo(to.id)">&times;</button>
+  </li>
+</ul>
