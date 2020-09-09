@@ -1,3 +1,4 @@
+import { TodosService } from './../shared/todos.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -7,26 +8,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ToDoComponent implements OnInit {
   appTitle = 'angular todo app';
-  @Input() todos: Todo[] = [
-    { id: 1, title: 'хлеб', completed: false, date: new Date() },
-    { id: 2, title: 'мясо', completed: true, date: new Date() },
-    { id: 3, title: 'рыба', completed: false, date: new Date() },
-  ];
-  @Output() onToggle = new EventEmitter<number>();
-  constructor() {}
+  constructor(public todosService: TodosService) {}
 
   ngOnInit(): void {}
-  onChange(id: number) {
-    const idx = this.todos.findIndex((t) => t.id === id);
-    this.todos[idx].completed = !this.todos[idx].completed;
+  
+  onToggle(id:number){
+    this.todosService.onChange(id)
   }
-  removeTodo(id: number){
-  this.todos = this.todos.filter(t => t.id !== id)
+  onRemove(id:number){
+    this.todosService.removeTodo(id)
+  }
+
 }
-}
-export interface Todo {
-  id: number;
-  title: string;
-  completed: boolean;
-  date?: any;
-}
+
