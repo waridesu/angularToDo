@@ -1,14 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule} from '@angular/router';
-import { } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {CardComponent} from './card/card.component';
 import { FormComponent } from './form/form.component';
 import { CarsComponent } from './cars/cars.component';
-import { ToDoComponent } from './to-do/to-do.component'
+import {HttpClientModule} from '@angular/common/http';
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { ToDoImputComponent } from './to-do-list/to-do-imput/to-do-imput.component';
+import { ToDoTaskComponent } from './to-do-list/to-do-task/to-do-task.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +20,9 @@ import { ToDoComponent } from './to-do/to-do.component'
     CardComponent,
     FormComponent,
     CarsComponent,
-    ToDoComponent
+    ToDoListComponent,
+    ToDoImputComponent,
+    ToDoTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -25,10 +30,13 @@ import { ToDoComponent } from './to-do/to-do.component'
     RouterModule.forRoot( [
       { path: 'card', component: CardComponent},
       { path: 'cars', component: CarsComponent},
-      { path: 'todo', component: ToDoComponent}
-     ])
+      { path: 'todo', component: ToDoListComponent}
+     ]),
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }
