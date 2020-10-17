@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule} from '@angular/router';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {CardComponent} from './card/card.component';
@@ -27,11 +25,6 @@ import {FormsModule} from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot( [
-      { path: 'card', component: CardComponent},
-      { path: 'cars', component: CarsComponent},
-      { path: 'todo', component: ToDoListComponent}
-     ]),
     HttpClientModule,
     FormsModule
   ],

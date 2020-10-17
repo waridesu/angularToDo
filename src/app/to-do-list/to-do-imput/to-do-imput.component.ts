@@ -7,7 +7,7 @@ import {Todo, TodosService} from '../../shared/todos.service';
   styleUrls: ['./to-do-imput.component.sass']
 })
 export class ToDoImputComponent implements OnInit {
-  title: string = '';
+  title: string;
 
   constructor(private  todosService: TodosService) {
   }
